@@ -11,6 +11,7 @@ body { margin: 0; background: var(--surface); }
 
 /* Inline pixel icons (16×16 grid, fill = currentColor) */
 .mus-ico { width: var(--icon-sm); height: var(--icon-sm); flex: none; display: block; color: var(--brand-primary); shape-rendering: crispEdges; }
+.mus-ico[hidden] { display: none; }
 .mus-ico--lg { width: var(--icon-md); height: var(--icon-md); }
 .mus-ico--xl { width: var(--icon-xl); height: var(--icon-xl); }
 .scm-header .mus-ico, .scm-footer .mus-ico, .scm-on-brand .mus-ico, .scm-field__error .mus-ico, .scm-form__fail .mus-ico { color: var(--on-brand); }

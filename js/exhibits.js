@@ -20,7 +20,7 @@
     var done = hiddenItems().length === 0;
     btn.setAttribute('aria-disabled', done ? 'true' : 'false');
     label.textContent = done ? btn.dataset.labelDone : btn.dataset.labelMore;
-    if (icon) icon.hidden = !done;
+    if (icon) icon.toggleAttribute('hidden', !done); // SVG has no .hidden property — set the attribute
   }
 
   btn.addEventListener('click', function () {
