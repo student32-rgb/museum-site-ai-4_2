@@ -1,0 +1,101 @@
+/* Software and Computer Museum — CSS variables generated from the design system's tokens.json.
+   Do not edit values by hand: change tokens.json in the design system and regenerate. */
+:root, [data-theme="light"] {
+  --brand-primary: #233a7e;
+  --brand-secondary: #1c4587;
+  --brand-deep: #152454;
+  --ink: #172757;
+  --ink-muted: #46557f;
+  --surface: #ffffff;
+  --surface-tint: #eef2fa;
+  --surface-tint-strong: #dfe6f4;
+  --on-brand: #ffffff;
+  --on-brand-muted: #cdd7ef;
+  --line: var(--brand-primary);
+  --line-soft: #8798c4;
+  --focus: var(--brand-primary);
+  --focus-on-brand: #ffffff;
+
+  /* Purpose tokens, light theme */
+  --bg: #ffffff;
+  --card-surface: #ffffff;
+  --card-titlebar: #1c4587;
+  --text-primary: #233a7e;
+  --text-secondary: #1c4587;
+  --button-bg: #233a7e;
+  --button-bg-hover: #ffffff;
+  --button-text: #ffffff;
+  --button-text-hover: #233a7e;
+  --border: #233a7e;
+  --focus-ring: #233a7e;
+  --error: #233a7e;
+  --success: #233a7e;
+
+  --shadow-window: 6px 6px 0 #152454;
+  --shadow-window-mobile: 4px 4px 0 #152454;
+  --shadow-button: 4px 4px 0 #152454;
+  --shadow-button-on-brand: 4px 4px 0 #152454;
+  --shadow-inset: inset 3px 3px 0 #dfe6f4;
+}
+
+/* Purpose tokens, blue section theme */
+[data-theme="blue"] {
+  --bg: #233a7e;
+  --card-surface: #ffffff;
+  --card-titlebar: #1c4587;
+  --text-primary: #ffffff;
+  --text-secondary: #cdd7ef;
+  --button-bg: #ffffff;
+  --button-bg-hover: #233a7e;
+  --button-text: #233a7e;
+  --button-text-hover: #ffffff;
+  --border: #ffffff;
+  --focus-ring: #ffffff;
+  --error: #ffffff;
+  --success: #ffffff;
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-round: 50%;
+
+  --tap-min: 48px;
+  --border-control: 2px;
+  --border-focus: 3px;
+  --border-accent: 4px;
+  --offset-xs: 2px;
+  --underline-offset: 6px;
+  --container-max: 1200px;
+  --form-max: 560px;
+  --control-height: 56px;
+  --titlebar-height: 36px;
+  --header-height: 80px;
+  --header-height-mobile: 64px;
+  --icon-sm: 24px;
+  --icon-md: 32px;
+  --icon-xl: 64px;
+  --measure: 640px;
+  --hero-title-max: 900px;
+  --hero-actions-max: 840px;
+  --tracking-mono: 0.04em;
+
+  --bp-mobile: 360px;
+  --bp-phone-wide: 480px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1280px;
+
+  --font-pixel: "Handjet", "Courier New", monospace;
+  --font-sans: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+}

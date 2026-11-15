@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "museum-static",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\Acer\\AppData\\Local\\Temp\\claude\\e1e9749983ea9b61\\76ce017a-c937-4b50-80c8-eeaef8be8f71\\scratchpad\\serve.ps1", "-Root", "C:\\Users\\Acer\\OneDrive\\Desktop\\Сайт_музею_2", "-Port", "8765"],
+      "port": 8765
+    }
+  ]
+}
