@@ -1,0 +1,110 @@
+/* Page layout on top of the design system (tokens.css + bundle.css).
+   Only tokens here; media queries use numbers: 1279px = bp-desktop − 1, 767px = bp-tablet − 1. */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--surface); }
+
+/* Sticky header (allowed by «Правила макета»); anchors land below it */
+.scm-header { position: sticky; top: 0; z-index: 5; }
+[id] { scroll-margin-top: calc(var(--header-height) + var(--border-accent)); }
+@media (max-width: 767px) { [id] { scroll-margin-top: calc(var(--header-height-mobile) + var(--border-accent)); } }
+
+/* Inline pixel icons (16×16 grid, fill = currentColor) */
+.mus-ico { width: var(--icon-sm); height: var(--icon-sm); flex: none; display: block; color: var(--brand-primary); shape-rendering: crispEdges; }
+.mus-ico[hidden] { display: none; }
+.mus-ico--lg { width: var(--icon-md); height: var(--icon-md); }
+.mus-ico--xl { width: var(--icon-xl); height: var(--icon-xl); }
+.scm-header .mus-ico, .scm-footer .mus-ico, .scm-on-brand .mus-ico, .scm-field__error .mus-ico, .scm-form__fail .mus-ico { color: var(--on-brand); }
+.scm-meta .mus-ico { margin-top: var(--offset-xs); }
+.scm-price .scm-meta__label { font-weight: 400; }
+/* Icons inside buttons follow the label colour, so they invert together on hover */
+.scm .scm-btn .mus-ico { color: currentColor; }
+
+/* Select: pixel chevron drawn in markup instead of the bundle's background image */
+.scm .scm-select { background-image: none; }
+.mus-select { position: relative; }
+.mus-select .mus-ico { position: absolute; right: var(--space-4); top: var(--space-4); pointer-events: none; }
+
+/* Language switch as links between the two language pages (same look as the bundle's buttons) */
+.scm-lang a { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap-min); min-height: var(--tap-min); padding: 0 var(--space-2); color: var(--on-brand-muted); font-family: var(--font-pixel); font-size: 22px; line-height: 28px; font-weight: 600; text-decoration: none; }
+.scm-lang a[aria-current="page"] { background: var(--on-brand); color: var(--brand-primary); }
+.scm-lang a[aria-current="page"]::before { content: ""; display: inline-block; width: var(--space-2); height: var(--space-2); margin-right: var(--space-1); border-radius: var(--radius-round); background: currentColor; }
+.scm-lang a:not([aria-current="page"]):hover { color: var(--on-brand); text-decoration: underline; }
+
+/* Header on tablets: logo, language and «Записатися» in the first row, the four anchors below
+   (in one row they need ~956px and would scroll sideways at 768px) */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .scm-header__inner { flex-wrap: wrap; row-gap: 0; }
+  .scm-header .scm-lang { margin-left: auto; }
+  .scm-header .scm-nav { order: 3; flex-basis: 100%; margin-left: calc(-1 * var(--space-2)); }
+}
+
+/* Header: menu on phones (hidden until «Меню» is pressed) */
+.mus-mobile-nav { display: none; }
+@media (max-width: 767px) {
+  .mus-mobile-nav:not([hidden]) { display: flex; flex-direction: column; padding: var(--space-2) var(--space-4) var(--space-4); background: var(--brand-deep); }
+  .mus-mobile-nav a { display: flex; align-items: center; min-height: var(--tap-min); color: var(--on-brand); font-family: var(--font-pixel); font-size: 24px; line-height: 28px; font-weight: 600; text-decoration: none; border-bottom: var(--border-control) solid var(--brand-primary); }
+  .mus-mobile-nav a[aria-current="true"] { text-decoration: underline; text-decoration-thickness: var(--border-accent); text-underline-offset: var(--underline-offset); }
+  .mus-mobile-nav a[aria-current="true"]::before { content: "> "; content: "> " / ""; white-space: pre; }
+  .scm-logo span { white-space: normal; }
+}
+
+/* Hero: text + decorative terminal window (desktop only) */
+.mus-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) calc(4 * var(--space-9)); gap: var(--space-8); align-items: center; max-width: var(--container-max); margin: 0 auto; }
+.mus-hero-grid .scm-hero__inner { margin: 0; }
+.mus-terminal { background: var(--brand-deep); border: var(--border-control) solid var(--on-brand); box-shadow: var(--shadow-window); }
+.mus-terminal .scm-window__bar { border-bottom: var(--border-control) solid var(--on-brand); }
+.mus-terminal pre { margin: 0; padding: var(--space-5); font-family: var(--font-mono); font-size: 18px; line-height: 28px; color: var(--on-brand); white-space: pre; }
+.scm-hero .scm-placeholder-tag { border-color: var(--on-brand-muted); }
+@media (max-width: 1279px) {
+  .mus-hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .mus-terminal { display: none; }
+}
+
+/* Section heads with a placeholder tag on the right */
+.mus-head-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-6); }
+.mus-head-row .scm-section__head { margin-bottom: 0; }
+
+/* Exhibit cards */
+.mus-exhibit { display: flex; flex-direction: column; flex: 1; }
+.mus-exhibit .scm-window__body { gap: var(--space-2); }
+.mus-tag-phone { display: none; }
+@media (max-width: 767px) {
+  .scm-grid:not(.scm-grid--compact) .scm-exhibit__photo .mus-ico--xl { width: var(--space-7); height: var(--space-7); }
+}
+.mus-more { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); margin-top: var(--space-6); }
+.mus-exhibit-extra[hidden] { display: none; }
+
+/* Skip link: off-screen until it receives keyboard focus */
+.mus-skip { position: absolute; left: var(--space-4); top: var(--space-4); z-index: 10; transform: translateY(calc(-100% - 2 * var(--space-9))); padding: var(--space-3) var(--space-4); background: var(--surface); color: var(--brand-primary); font-weight: 600; border: var(--border-control) solid var(--brand-primary); }
+.mus-skip:focus { transform: none; }
+.scm { position: relative; }
+.mus-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+main:focus { outline: none; }
+
+/* Draft-translation notice on the English page */
+.mus-lang-note { padding: var(--space-3) var(--space-8); background: var(--surface-tint); color: var(--ink); border-bottom: var(--border-control) solid var(--brand-primary); }
+@media (max-width: 1279px) { .mus-lang-note { padding: var(--space-3) var(--space-6); } }
+@media (max-width: 767px) { .mus-lang-note { padding: var(--space-3) var(--space-4); } }
+
+/* Signup + contacts: side by side from 1280px, stacked below */
+.mus-signup { display: grid; grid-template-columns: minmax(0, var(--form-max)) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+@media (max-width: 1279px) { .mus-signup { grid-template-columns: minmax(0, 1fr); gap: var(--space-7); } }
+.mus-signup .scm-form { max-width: none; }
+.mus-signup [hidden] { display: none; }
+/* Success state: message, then «Надіслати ще одну заявку» under it, aligned left as in the design */
+#signup-success:not([hidden]) { display: flex; flex-direction: column; gap: var(--space-3); }
+.mus-again { align-self: flex-start; margin-top: var(--space-2); }
+.mus-contacts-title { font-family: var(--font-pixel); font-size: 30px; line-height: 34px; font-weight: 600; color: var(--brand-primary); margin: 0; }
+@media (max-width: 767px) { .mus-contacts-title { font-size: 28px; line-height: 32px; } }
+.mus-contacts-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+.mus-contacts-list li { display: flex; align-items: flex-start; gap: var(--space-3); }
+.mus-contacts-list .mus-label { display: block; font-weight: 600; }
+.mus-contacts-list .mus-muted { color: var(--ink-muted); }
+.mus-route-hint { margin-top: calc(-1 * var(--space-2)); }
+/* Вбудована карта заповнює рамку .scm-map з bundle.css */
+.scm-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* Footer */
+.mus-footer-lang { margin-left: auto; }
+@media (max-width: 767px) { .mus-footer-lang { margin-left: 0; } }

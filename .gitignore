@@ -1,0 +1,23 @@
+# Локальні налаштування Claude і сервера для перегляду
+.claude/
+
+# Робочі нотатки та документи (сайту не потрібні)
+handoff.md
+handoff-claude-code.md
+plan.md
+Звіт.md
+content-plan.md
+research-report.md
+design-system-README.md
+design-system-rules.md
+ТЗ — сторінка Software and Computer Museum.docx
+
+# Службові файли системи й редакторів
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+*.tmp
+*.bak
+.vscode/
+.idea/
